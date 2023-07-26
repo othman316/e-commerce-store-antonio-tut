@@ -8,8 +8,9 @@ import { FC } from 'react'
 interface HomePageProps {}
 
 const HomePage: FC<HomePageProps> = async ({}) => {
-  const billboard = await getBillboard('877b82d7-76d3-4bf6-b90d-e66442d9be33')
-  const products = await getProducts({ isFeatured: true })
+  const billboard =
+    (await getBillboard('877b82d7-76d3-4bf6-b90d-e66442d9be33')) || {}
+  const products = (await getProducts({ isFeatured: true })) || []
   return (
     <Container>
       <div className="space-y-10 pb-10">
